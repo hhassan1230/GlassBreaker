@@ -9,6 +9,8 @@ public class TrumpExplosion : MonoBehaviour {
 	{
 		//		exploder.CrackObject(obj1); // exploder is not defined
 //		Exploder.CrackedObject(this.gameObject); // Does not do anything
+		ExploderSingleton.ExploderInstance.CrackObject(this.gameObject);
+
 
 	}
 	// Use this for initialization
@@ -24,6 +26,8 @@ public class TrumpExplosion : MonoBehaviour {
 	void OnCollisionEnter(Collision collision) {
 		if (collision.gameObject.tag == "bullet") {
 			print ("I should explode!!!");
+			ExploderSingleton.ExploderInstance.ExplodeCracked(this.gameObject);
+
 			//			Exploder.ExplodeCracked(this.gameObject); // Errors
 //			ExploderSingleton.ExploderInstance.ExplodeObject (this.gameObject); // This works but takes too long
 		}
